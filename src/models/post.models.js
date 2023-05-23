@@ -9,41 +9,35 @@ const Categories = require('./categories.models');
 
 
 //> TABLE OF ALL POST
-const Post = db.define('posts', {
-    
+const Posts = db.define('posts', {
     id: {
-        primaryKey: true,
         type: DataTypes.UUID,
-        allowNull: false
+        primaryKey: true
     },
     title: {
-        type: DataTypes.STRING(60),
-        allowNull: false
+        type: DataTypes.STRING,
+        allowNull:false
     },
     content: {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    createBy: { //! llave foranea de users
-        defaultValue: 'create_by',
+    userId:{
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-            key: 'id',
-            model: Users
+           key: 'id',
+           model: Users
         }
     },
-    categoryId: { //! llave foranea de category
-        defaultValue: 'category_id',
+    categoryId:{
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            key: 'id',
-            model: Categories
+           key: 'id',
+           model: Categories
         }
     }
-
-
 });
 
-module.exports = Post
+module.exports = Posts

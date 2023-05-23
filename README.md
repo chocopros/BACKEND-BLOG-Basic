@@ -42,4 +42,31 @@ npm i -D nodemon
     - Acciones de Crud sobre Posts.
     - Crear Categorias.
 
+---
+
+# JSON
+```
+    {
+        "total": 68,
+        "prev": "localhost:9000/api/v1/posts?start=51&limit60",
+        "next": "localhost:9000/api/v1/posts?start=61&limit68",
+        "data": [
+            {
+                "id": "1",
+                "tittle": "title lorem ipsum",
+                "content": "text255 lorem ipsum",
+                "created": {
+                    "id": "uuid",
+                    "name": "Sahid",
+                    "email": "jesuschock93@gmail.com"
+                },
+                "category": {
+                    "id": 4,
+                    ""name: "Tecnology"
+                }
+            }
+        ]
+            
+    }
+```
 
