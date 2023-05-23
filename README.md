@@ -27,6 +27,19 @@ npm init --y
 npm i express uuid sequelize dotenv pg pg-hstore bcrypt passport passport-jwt jsonwebtoken
 npm i -D nodemon
 
- ---
+---
 
-# TIME
+# BLOG API
+
+- Front:
+    - Obtener todas las publicaciones.
+    - Obtener una en especifico.
+    - Obtener todas las Categorias.
+    - Obtener todos los post de una categoria en especifico.
+    - Obtener todos los post que he creado.
+    - Obtener todos los post de un usuario en especifico.
+    - Podemos Paginar los posts.
+    - Acciones de Crud sobre Posts.
+    - Crear Categorias.
+
+
