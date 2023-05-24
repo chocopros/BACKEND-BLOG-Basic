@@ -52,7 +52,7 @@ npm i -D nodemon
         "next": "localhost:9000/api/v1/posts?start=61&limit68",
         "data": [
             {
-                "id": "1",
+                "id": "88240d09-ad49-44ff-b152-39f42a778bdb",
                 "tittle": "title lorem ipsum",
                 "content": "text255 lorem ipsum",
                 "created": {
@@ -65,8 +65,28 @@ npm i -D nodemon
                     ""name: "Tecnology"
                 }
             }
-        ]
-            
+        ]        
     }
 ```
+
+# API ROUTE
+
+<!-- Principal -->
+/api/v1
+
+/users
+    - /me
+    - /me/posts
+    - /me/posts/:id
+    - /:id
+
+/categories
+    - /id
+    - /:id/posts
+
+/posts
+    - /:id
+
+
+
 
