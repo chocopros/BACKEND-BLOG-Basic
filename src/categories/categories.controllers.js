@@ -11,7 +11,9 @@ const createCategories = async (data) => {
 
 //> GET ALL CATEGORIES
 const getAllCategories = async () => {
-    return await Categories.findAll();
+    return await Categories.findAll({
+        attributes: ['name']
+    });
 };
 
 

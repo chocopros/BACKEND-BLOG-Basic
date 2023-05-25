@@ -1,5 +1,6 @@
 //? DEPENDENCIES
 const categoriesControllers = require('./categories.controllers');
+const {port} = require('../config');
 
 //* >>> SERVICES <<< 
 
@@ -27,7 +28,13 @@ const newCategory = ( req, res ) => {
 //> GET ALL CATEGORIES
 const getAllCategories = ( req, res) => {
     categoriesControllers.getAllCategories()
-        .then( r => res.status(200).json(r))
+        .then( result => res.status(200).json({
+            MainMenu: `http://localhost:${port}/`,
+            categoriesCount: result.length,
+            categories: result
+                
+            
+        }))
         .catch(err => res.status(400).json({message: err.message}))
 };
 

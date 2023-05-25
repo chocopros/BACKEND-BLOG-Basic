@@ -27,6 +27,8 @@ db.sync()
 
 initModels()
 
+
+//> MAIN MENU
 app.get('/', (req, res, next) => {
     console.log(req.method)
     next()
@@ -34,6 +36,8 @@ app.get('/', (req, res, next) => {
     res.status(200).json({
         STATUS_SERVER: "OK!!!",
         users: `http://localhost:${port}/api/v1/users`,
+        register: `http://localhost:${port}/api/v1/auth/register`,
+        categories: `http://localhost:${port}/api/v1/categories`
     })
 });
 
