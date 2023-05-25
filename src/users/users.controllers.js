@@ -6,7 +6,6 @@ const e = require('express');
 
 
 //> CREATE NEW USERS
-
 const createNewUser = async (data) => {
     const userUUID = uuid.v4()
     const newUser = await Users.create({
