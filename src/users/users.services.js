@@ -20,7 +20,7 @@ const createUser = ( req, res ) => {
                 email: "example@dominio.com",
                 password: "p4s2W0rd*k3y"
             }
-        })
+        });
     };
 };
 

@@ -38,7 +38,7 @@ const getAllUsers = async () => {
 const getUserByID = async(id) => {
     const user = await Users.findOne({
         where: {
-            id,
+            id
         }
     });
     return user;
