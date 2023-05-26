@@ -27,7 +27,8 @@ const getAllPostById = ( req, res ) => {
 
 //> CREATE POST
 const newPost = ( req, res ) => {
-    const userId = req.user.id
+    const userId = req.user.id;
+    //console.log(userId)
     const {title,content,categoryId} = req.body
 
     if ( title && content && categoryId && userId ) {

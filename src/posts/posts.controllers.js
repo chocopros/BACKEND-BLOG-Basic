@@ -25,7 +25,7 @@ const createPost = async(data) => {
         title: data.title,
         content: data.content,
         userId: data.userId,
-        categoryId: data.categoriId,
+        categoryId: data.categoryId,
     });
 };
 
