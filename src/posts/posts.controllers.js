@@ -2,10 +2,32 @@
 const Posts = require('../models/post.models');
 const uuid = require('uuid');
 
+//? MY MODELS DB
+const Users = require('../models/users.models');
+const Categories = require('../models/categories.models');
+
 
 //> GET ALL POSTS
 const getAllPosts = async () => {
-    return await Posts.findAll()
+    return await Posts.findAll({
+        include: [
+            {
+                model: Users,
+                attributes : {
+                    exclude: ["password","role","status","isValidated","birthday","createdAt","updatedAt","gender"]
+                }
+            },
+            {
+                model: Categories,
+                attributes : {
+                    exclude: ["id"]
+                }
+            }
+        ],
+        attributes: {
+            exclude: ['createdAt','updatedAt','categoryId',"userId"]
+        }
+    })
 };
 
 //> GET POST BY ID
