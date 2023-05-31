@@ -25,6 +25,7 @@ const Posts = db.define('posts', {
     userId:{
         type: DataTypes.UUID,
         allowNull: false,
+        field: 'user_id',
         references: {
            key: 'id',
            model: Users
@@ -33,6 +34,7 @@ const Posts = db.define('posts', {
     categoryId:{
         type: DataTypes.INTEGER,
         allowNull: false,
+        field: 'category_id',
         references: {
            key: 'id',
            model: Categories

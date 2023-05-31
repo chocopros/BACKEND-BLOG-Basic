@@ -13,6 +13,7 @@ const getAllPosts = async () => {
         include: [
             {
                 model: Users,
+                as: 'usuarios',
                 attributes : {
                     exclude: ["password","role","status","isValidated","birthday","createdAt","updatedAt","gender"]
                 }
