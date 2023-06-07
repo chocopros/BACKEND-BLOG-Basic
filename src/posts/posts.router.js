@@ -1,6 +1,6 @@
 //? DEPENDENCIES
 const router = require('express').Router();
-const passport = require('passport')
+const passport = require('passport');
 
 const postServices = require('./posts.services');
 require('../middlewares/auth.middlewares')(passport)
