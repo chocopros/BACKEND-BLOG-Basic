@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const categoryServices = require('./categories.services');
+const postsServices = require('../posts/posts.services')
 
 //> ROUTE CATEGORIES
 router.route('/')
@@ -12,5 +13,7 @@ router.route('/:id')
     .get(categoryServices.getCategoryById)
     .patch(categoryServices.pathCategory)
     .delete(categoryServices.deleteCategory);
+
+router.get('/:id/posts',postsServices.getPostsByCategory);
 
 module.exports = router;

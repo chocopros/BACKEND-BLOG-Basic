@@ -23,7 +23,7 @@ const getAllPosts = async () => {
                 attributes : {
                     exclude: ["id"]
                 }
-            }
+            } 
         ],
         attributes: {
             exclude: ['createdAt','updatedAt','categoryId',"userId"]
@@ -52,10 +52,20 @@ const createPost = async(data) => {
     });
 };
 
+//> GET POST BY CATEGORY
+const getPostByCategory = async (categoryId) => {
+    return await Posts.findAll({
+        where: {
+            categoryId
+        }
+    });
+};
+
 module.exports = {
     getAllPosts,
     getPostById,
-    createPost
+    createPost,
+    getPostByCategory
 };
 
 

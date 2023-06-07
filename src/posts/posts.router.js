@@ -14,4 +14,6 @@ router.route('/')
         postServices.newPost
     )
 
+
+
 module.exports = router
