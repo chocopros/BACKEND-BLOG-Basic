@@ -13,7 +13,6 @@ const getAllPosts = async () => {
         include: [
             {
                 model: Users,
-                as: 'usuarios',
                 attributes : {
                     exclude: ["password","role","status","isValidated","birthday","createdAt","updatedAt","gender"]
                 }
@@ -57,7 +56,14 @@ const getPostByCategory = async (categoryId) => {
     return await Posts.findAll({
         where: {
             categoryId
-        }
+        },
+        include: [
+            {
+                model: Users,
+                attributes: ['firstName','lastName','email']
+            }
+        ],
+        attributes: ['id','title','content','createdAt']
     });
 };
 
@@ -71,6 +77,12 @@ module.exports = {
 
 
 //* TEST
+/*
+//> GET ALL POST
+getAllPosts()
+    .then(r=>console.log(r))
+    .catch(err=>console.log(err))
+*/
 
 //> CREATE POST
 /*

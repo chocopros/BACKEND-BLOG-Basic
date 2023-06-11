@@ -7,7 +7,10 @@ const postControllers = require('./posts.controllers')
 //> GET ALL POSTS
 const getAllPosts = ( req, res ) => {
     postControllers.getAllPosts()
-        .then(r => res.status(200).json({r}))
+        .then(posts => res.status(200).json({
+            post_count: posts.length,
+            posts
+        }))
         .catch(err => res.status(400).json(err))
 };
 
@@ -36,14 +39,14 @@ const newPost = ( req, res ) => {
             .then(r=> {res.status(201).json({r})})
             .catch(err => res.status(400).json({
                 message: err.message,
-                error: err.errors[0].message
+                error: err
             }))
     } else {
         res.status(400).json({
             message: `Fail Fields Register`,
             fields: {
                 title: "string",
-                conten: "string",
+                content: "string",
                 categoryId: "number",
             }
         });
