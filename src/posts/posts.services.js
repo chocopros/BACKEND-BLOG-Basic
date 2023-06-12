@@ -6,10 +6,16 @@ const postControllers = require('./posts.controllers')
 
 //> GET ALL POSTS
 const getAllPosts = ( req, res ) => {
+
+    //? localhost:16000/api/v1/posts?offset=0&limit=10
+    const { offset, limit } = req.params
+
     postControllers.getAllPosts()
         .then(posts => res.status(200).json({
             post_count: posts.length,
-            posts
+            offset: offset,
+            limit: limit,
+            result: posts
         }))
         .catch(err => res.status(400).json(err))
 };
