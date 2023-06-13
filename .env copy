@@ -14,3 +14,6 @@ DB_PORT=5432
 
 #JWT
 JWT_SECRET=
+
+#WEB
+HOST=localhost:16000

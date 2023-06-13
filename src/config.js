@@ -5,6 +5,7 @@ const config = {
     port: process.env.PORT || 8000,
     nodeEnv: process.env.NODE_ENV || 'development',
     jwtSecret: process.env.JWT_SECRET,
+    host: process.env.HOST || 'localhost:9000',
     db:{
         port: process.env.DB_PORT || 5432,
         host: process.env.DB_HOST || '127.0.0.1',

@@ -1,6 +1,6 @@
 //? Dependencies
-
 const postControllers = require('./posts.controllers')
+const {host} = require('../config')
 
 //* >>> SERVICES <<<
 
@@ -8,15 +8,21 @@ const postControllers = require('./posts.controllers')
 const getAllPosts = ( req, res ) => {
 
     //? localhost:16000/api/v1/posts?offset=0&limit=10
-    const query = req.query
-    //console.log(query)
+    const offset = Number(req.query.offset || 0)
+    const limit = Number(req.query.limit || 10)
+    //console.log(offset,limit)
 
-    postControllers.getAllPosts(query.offset,query.limit)
+    const urlBase = `${host}/api/v1/posts`
+   
+    postControllers.getAllPosts(offset,limit)
         .then(posts => res.status(200).json({
             post_count: posts.length,
-            offset: query.offset, //? Donde inicia
-            limit: query.limit, //? Cantidad maxima a mostrar
+            next: `${urlBase}?offset=${offset+limit}&limit=${limit}`,
+            prev: `${urlBase}?offset=${Math.abs(offset-limit)}&limit=${limit}`,
+            offset: offset, //? Donde inicia
+            limit: limit, //? Cantidad maxima a mostrar
             result: posts
+            
         }))
         .catch(err => res.status(400).json(err))
 };
