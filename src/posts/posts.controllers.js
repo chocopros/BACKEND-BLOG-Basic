@@ -9,7 +9,7 @@ const Categories = require('../models/categories.models');
 
 //> GET ALL POSTS
 const getAllPosts = async ( offset, limit) => {
-    return await Posts.findAll({
+    return await Posts.findAndCountAll({
         offset: offset,
         limit: limit,
         include: [
