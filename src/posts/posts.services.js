@@ -16,11 +16,19 @@ const getAllPosts = ( req, res ) => {
    
     postControllers.getAllPosts(offset,limit)
         .then(posts => {
-            const nextPage = posts.count - offset >= limit;
+
+            //* post?offfset=20&limit=10
+            //? length 33
+            //? offset 20
+            //? limit 10
+
+            const nextPage = posts.count - offset >= limit ? `${urlBase}?offset=${offset+limit}&limit=${limit}` : null;
+            const prevPage = offset - limit >= 0 ? `${urlBase}?offset=${offset-limit}&limit=${limit}` : null;
+
             res.status(200).json({
                 post_count: posts.length,
-                next: `${urlBase}?offset=${offset+limit}&limit=${limit}`,
-                prev: `${urlBase}`,
+                next: nextPage,
+                prev: prevPage,
                 offset: offset, //? Donde inicia
                 limit: limit, //? Cantidad maxima a mostrar
                 result: posts
